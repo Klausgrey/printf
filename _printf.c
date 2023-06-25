@@ -10,8 +10,8 @@ int _printf(const char *format, ...)
 {
     unsigned int i;
     int r_value = 0;
-    char *str_h;
     va_list args;
+    char *str_h;
 
     va_start(args, format);
     if (format)
@@ -32,24 +32,34 @@ int _printf(const char *format, ...)
             else if (format[i + 1] == 's')
             {
                 str_h = va_arg(args, char *);
-		if(str_h == NULL)
-		{
-			print_out(NULL);
-			r_value++;
-		}
-		else
-		{
-			print_str(str_h);
-			r_value++;
-		}
+                if (str_h == NULL)
+                {
+                    print_out("(Null)");
+                    r_value++;
+                }
+                else
+                {
+                    while (*str_h)
+                    {
+                        print_str(*str_h);
+                        str_h++;
+                        r_value++;
+                    }
+                }
                 i++;
-
             }
             else if (format[i + 1] == '%')
             {
                 print_out('%');
                 i++;
                 r_value++;
+            }
+            else
+            {
+                print_out('%');
+                print_out(format[i + 1]);
+                i++;
+                r_value += 2;
             }
         }
     }
