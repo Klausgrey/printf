@@ -10,7 +10,7 @@ int _printf(const char *format, ...)
 {
     unsigned int i;
     int r_value = 0;
-    int r_val = 0;
+    char *str_h;
     va_list args;
 
     va_start(args, format);
@@ -39,7 +39,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			print_out(str_h);
+			print_str(str_h);
 			r_value++;
 		}
                 i++;
