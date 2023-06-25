@@ -1,5 +1,5 @@
-#ifndef MAIN.H
-#define MAIN.H
+#ifndef MAIN_H
+#define MAIN_H
 
 /** C library functions used **/
 #include <stdio.h>
@@ -7,7 +7,7 @@
 #include <stdarg.h>
 
 /** PROTOTYPES **/
-int print_out(char c);
+int _putchar(char c);
 int _printf(const char *format, ...);
 int print_str(char *str);
 
