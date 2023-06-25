@@ -9,6 +9,6 @@
 /** PROTOTYPES **/
 int _putchar(char c);
 int _printf(const char *format, ...);
-int print_str(char *str);
+int _putstr(char *str);
 
 #endif

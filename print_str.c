@@ -14,7 +14,7 @@ int _putstr(char *str)
 	{
 		for(index = 0; str[index] != '\0'; index++)
 		{
-			print_out(str[index]);
+			_putchar(str[index]);
 			r_value += 1;
 		}
 	}
