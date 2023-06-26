@@ -1,5 +1,8 @@
 #include "main.h"
 
+int (*get_func(char flag))(va_list);
+
+
 /**
  * _printf - replica of the printf function
  * *format: parameter
@@ -11,11 +14,11 @@ int _printf(const char *format, ...)
     unsigned int i;
     int r_value = 0;
     va_list args;
-    char *str_h;
 
     va_start(args, format);
-    if (format)
-    {
+    if (format == NULL || (format[0] == '%' && format[1] == '\0'))
+	    return(-1);
+
         for (i = 0; format[i] != '\0'; i++)
         {
             if (format[i] != '%')
@@ -23,52 +26,53 @@ int _printf(const char *format, ...)
                 _putchar(format[i]);
                 r_value++;
             }
-            else if (format[i + 1] == 'c')
-            {
-                _putchar(va_arg(args, int));
-                i++;
-                r_value++;
-            }
-            else if (format[i + 1] == 's')
-            {
-                str_h = va_arg(args, char *);
-                if (str_h == NULL)
-                {
-                    _putstr("(Null)");
-                    r_value++;
-                }
-                else
-                {
-                    while (*str_h)
-                    {
-                        _putstr(*str_h);
-                        str_h++;
-                        r_value++;
-                    }
-                }
-                i++;
-            }
             else if (format[i + 1] == '%')
             {
-                print_out('%');
-                i++;
-                r_value++;
-            }
-            else
-            {
-                print_out('%');
-                print_out(format[i + 1]);
-                i++;
-                r_value += 2;
-            }
-        }
-    }
-    else
-    {
-        va_end(args);
-        return (-1);
-    }
-    va_end(args);
-    return (r_value);
+                _putchar(format[i]);
+		i++;
+	    }
+            else if (get_func(format[i + 1]) != NULL)
+	    {
+		    r_value += get_func(format[i + 1])(args);
+		    i++;
+	    }
+	    else
+		{
+			_putchar(format[i]);
+			r_value++;
+		}
+	}
+	va_end(args);
+
+	return (r_value);
 }
 
+/**
+ * get_func - auxiliar function for print with a specific format.
+ * @flag: format specifier
+ * Return: pointer to format function or NULL.
+ */
+int (*get_func(char flag))(va_list)
+{
+	printer_t arr[] = {
+		{'c', print_c},
+		{'s', _putstr},
+		{'i', _putidx},
+		{'d', _putidx},
+		{'b', _putbi},
+		{'u', print_u},
+		{'o', print_o},
+		{'x', print_x},
+		{'X', print_X},
+		{'r', print_r},
+		{'R', print_R},
+		{'\0', NULL}
+	};
+	int i;
+
+	for (i = 0; arr[i].flag != '\0'; i++)
+		if (flag == arr[i].flag)
+			break;
+
+	return (arr[i].function);
+}

@@ -1,22 +1,24 @@
 #include "main.h"
 
 /**
- * print_str - prints a string
+ * _putstr - prints a string
  * str: pointer to the string
  * Return: the total number of character it prints
  */
 
-int _putstr(char *str)
+int _putstr(va_list args)
 {
-	int index, r_value = 0;
+	int index;
+	char *str = va_arg(args, char *);
 
-	if(str)
+	if(str == NULL)
+		str = ("(null)");
+	else
 	{
 		for(index = 0; str[index] != '\0'; index++)
 		{
 			_putchar(str[index]);
-			r_value += 1;
 		}
 	}
-	return(r_value);
+	return(index);
 }
