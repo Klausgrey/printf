@@ -7,7 +7,7 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-/** SRUCTUCER **/
+/** STRUCTURE **/
 
 /**
  * struct printer - conects format specifier with its corresponding function.
@@ -35,4 +35,4 @@ int _putstr(va_list args);
 /**int print_r(va_list args);**/
 /**int print_R(va_list args);**/
 
-#endif
+#endif /* END OF HEADER FILE */
