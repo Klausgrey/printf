@@ -26,6 +26,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int print_c(va_list args);
 int _putstr(va_list args);
+int print_int(int num);
 /**int _putidx(va_list args);**/
 /**int _putbi(va_list args);**/
 /**int print_u(va_list args);**/
