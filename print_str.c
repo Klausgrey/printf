@@ -8,17 +8,15 @@
 
 int _putstr(va_list args)
 {
-	int index;
+	int index = 0;
 	char *str = va_arg(args, char *);
 
 	if(str == NULL)
-		str = ("(null)");
-	else
-	{
-		for(index = 0; str[index] != '\0'; index++)
-		{
-			_putchar(str[index]);
-		}
-	}
+		str = "(null)";
+
+	for(; str[index]; index++)
+		_putchar(str[index]);
+
 	return(index);
 }
+

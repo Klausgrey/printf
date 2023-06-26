@@ -3,6 +3,6 @@
 int main(void)
 {
 	char letter = 'a';
-	char *str = "i am a boy";
-	_printf("%s %c not a girl\n", *str, letter);
+	char str[] = "i am ";
+	_printf("%s %c boy not a girl\n", str, letter);
 }

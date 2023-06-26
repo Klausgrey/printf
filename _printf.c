@@ -11,24 +11,27 @@ int (*get_func(char flag))(va_list);
 
 int _printf(const char *format, ...)
 {
-    unsigned int i;
+    int i;
     int r_value = 0;
     va_list args;
 
-    va_start(args, format);
     if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 	    return(-1);
 
-        for (i = 0; format[i] != '\0'; i++)
+	va_start(args, format);
+        for (i = 0;  format && format[i]; i++)
         {
             if (format[i] != '%')
             {
                 _putchar(format[i]);
                 r_value++;
             }
-            else if (format[i + 1] == '%')
+            else if (format[i + 1] == '\0')
+		    return (-1);
+	    else if (format[i + 1] == '%')
             {
                 _putchar(format[i]);
+		r_value++;
 		i++;
 	    }
             else if (get_func(format[i + 1]) != NULL)
@@ -57,7 +60,7 @@ int (*get_func(char flag))(va_list)
 	printer_t arr[] = {
 		{'c', print_c},
 		{'s', _putstr},
-		{'i', _putidx},
+		/*{'i', _putidx},
 		{'d', _putidx},
 		{'b', _putbi},
 		{'u', print_u},
@@ -65,7 +68,7 @@ int (*get_func(char flag))(va_list)
 		{'x', print_x},
 		{'X', print_X},
 		{'r', print_r},
-		{'R', print_R},
+		{'R', print_R}*/
 		{'\0', NULL}
 	};
 	int i;
