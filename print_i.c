@@ -1,7 +1,8 @@
 #include "main.h"
 /**
- *
- *
+ *  _putidx - prints an integer value.
+ * @args: arguments
+ * Return: total count of integers printed
  */
 
 int _putidx(va_list args)
