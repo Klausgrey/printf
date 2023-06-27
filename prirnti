@@ -14,11 +14,11 @@ void print_int(long int num)
 	if (num != 0)
 	{
 		n = num % 10;
-		r_val = (n / 10);
+		(n / 10);
 		_putchar(num + '0');
 
 	}
-	return (0);
+	return ();
 }
 /**
  * _putidx - main funtion that prints an interger value.
