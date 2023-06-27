@@ -33,11 +33,6 @@ int _printf(const char *format, ...)
 			r_value++;
 			i++;
 		}
-		else if (format[i + 1] == 'i' || format[i + 1] == 'd')
-		{
-			print_int(va_arg(args, int));
-			i++;
-		}
 		else if (get_func(format[i + 1]) != NULL)
 		{
 			r_value += get_func(format[i + 1])(args);

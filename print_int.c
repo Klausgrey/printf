@@ -34,15 +34,14 @@ int _putidx(va_list args)
 	if (n < 0)
 	{
 		_putchar('-');
+	r_value++;
 	num = -n;
 	print_int(num);
-	r_value++;
 	}
 	else
 	{
 		num = n;
 	print_int(num);
-	r_value++;
 	}
 	while (num / 10 != 0)
 	{
