@@ -59,8 +59,8 @@ int (*get_func(char flag))(va_list)
 	printer_t arr[] = {
 		{'c', print_c},
 		{'s', _putstr},
-		/**{'i', _putidx}**/
-		/**{'d', _putidx},**/
+		{'i', _putidx},
+		{'d', _putidx},
 		/**{'b', _putbi},**/
 		/**{'u', print_u},**/
 		/**{'o', print_o},**/

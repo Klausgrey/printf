@@ -1,21 +1,53 @@
 #include "main.h"
+int _putidx(va_list args);
 
 /**
  * print_int - A function that prints the integer values
- * @num: the integer value passed
- * 
- * Return: the number of times putchar prints integer
+ * @num: the integer value passed.
+ * Return: 0 if successful.
  */
 
-int print_int(int num)
+int print_int(long int num)
 {
-	int ret_val = 0, n;
+	int n = 0;
 	if (num != 0)
 	{
 		n = num % 10;
-		ret_val += print_int(num / 10);
-		_putchar(n + '0');
-		ret_val++;
+		print_int(n / 10);
+		_putchar(num + '0');
 	}
-	return (ret_val);
+	return (0);
+}
+/**
+ * _putidx - main funtion that prints an interger value.
+ * @args: number of arguments passed.
+ * Return: number of characters printed
+ */
+
+int _putidx(va_list args)
+{
+	int n = va_arg(args, int);
+
+	int r_value = 1;
+	long int num;
+
+	if (n < 0)
+	{
+		_putchar('-');
+	num = -n;
+	print_int(num);
+	r_value++;
+	}
+	else
+	{
+		num = n;
+	print_int(num);
+	r_value++;
+	}
+	while (num / 10 != 0)
+	{
+		r_value++;
+		num = num / 10;
+	}
+	return (r_value);
 }
