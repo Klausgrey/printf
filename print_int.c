@@ -7,14 +7,16 @@ int _putidx(va_list args);
  * Return: 0 if successful.
  */
 
-int print_int(long int num)
+void print_int(long int num)
 {
 	int n = 0;
+	
 	if (num != 0)
 	{
 		n = num % 10;
-		print_int(n / 10);
+		r_val = (n / 10);
 		_putchar(num + '0');
+
 	}
 	return (0);
 }
@@ -36,7 +38,7 @@ int _putidx(va_list args)
 		_putchar('-');
 	r_value++;
 	num = -n;
-	print_int(num);
+	print_int(-num);
 	}
 	else
 	{
