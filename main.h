@@ -29,7 +29,7 @@ int _putstr(va_list args);
 int _putidx(va_list args);
 int _putidx(va_list args);
 int _putbi(va_list args);
-/**int print_u(va_list args);**/
+int print_u(va_list args);
 /**int print_o(va_list args);**/
 /**int print_x(va_list args);**/
 /**int print_X(va_list args);**/
