@@ -33,7 +33,6 @@ int print_uni(va_list args);
 int print_oct(va_list args);
 int print_x(va_list args);
 int print_X(va_list args);
-int print_r(va_list args);
 int print_R(va_list args);
 
 #endif /* END OF HEADER FILE */
