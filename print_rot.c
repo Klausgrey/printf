@@ -21,7 +21,7 @@ int print_R(va_list args)
 		if (str[i] == alpha[j])
 		{
 			_putchar(rot13[j]);
-			r_value+;
+			r_value++;
 		}
 		else
 		{

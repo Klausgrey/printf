@@ -66,8 +66,8 @@ int (*get_func(char flag))(va_list)
 		{'o', print_oct},
 		{'x', print_x},
 		{'X', print_X},
-		/**{'r', print_r},**/
-		/**{'R', print_R}*/
+		{'r', print_r},
+		{'R', print_R}
 		{'\0', NULL}
 	};
 	int i;
