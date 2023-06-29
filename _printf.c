@@ -62,9 +62,9 @@ int (*get_func(char flag))(va_list)
 		{'i', _putidx},
 		{'d', _putidx},
 		{'b', _putbi},
-		{'u', print_u},
-		/**{'o', print_o},**/
-		/**{'x', print_x},**/
+		{'u', print_uni},
+		{'o', print_oct},
+		{'x', print_x},
 		/**{'X', print_X},**/
 		/**{'r', print_r},**/
 		/**{'R', print_R}*/
