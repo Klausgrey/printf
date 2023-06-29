@@ -45,7 +45,7 @@ int print_X(va_list args)
 		num = num / 16;
 		i++;
 	}
-	v_value = i;
+	r_value = i;
 	i--;
 
 	for (; i >= 0; i--)
