@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
-*_putbi - prints binary
-*@args: argumnets passed
-*Return: character printed 
+* _putbi - prints binary
+* @args: argumnets passed
+* Return: character printed
 */
 
 int _putbi(va_list args)
@@ -25,6 +25,7 @@ int _putbi(va_list args)
         num = num / 2;
         i++;
     }
+    i--;
     for (; i >= 0; i--)
     _putchar(tab[i] + 45);
     r_value++;
@@ -50,12 +51,12 @@ int print_int(unsigned int num)
 
 /**
  * print_u - prints a unsigned int number.
- * @arg: number to print.
+ * @args: number to print.
  * Return: number of digits printed.
  */
 int print_u(va_list args)
 {
-	unsigned int num = va_arg(args, int);
+    unsigned int num = va_arg(args, int);
 	int r_value= 1;
 
 	print_int(num);
