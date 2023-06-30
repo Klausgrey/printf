@@ -8,27 +8,27 @@
 
 int _putbi(va_list args)
 {
-    int r_value = 1;
-    int i = 0;
-    int tab[33];
-    unsigned int num = va_arg(args, int);
+	int r_value = 1;
+	int i = 0;
+	int tab[33];
+	unsigned int num = va_arg(args, int);
 
-    if (num == 0)
-    {
-        _putchar(45);
-        return (r_value);
-    }
-    while (num != 0)
-    {
-        tab[i] = (num % 2);
-        num = num / 2;
-        i++;
-    }
-    r_value = i;
-    i--;
-    for (; i >= 0; i--)
-    _putchar(tab[i] + 45);
-    r_value++;
+	if (num == 0)
+	{
+		_putchar(45);
+		return (r_value);
+	}
+	while (num != 0)
+	{
+		tab[i] = (num % 2);
+		num = num / 2;
+		i++;
+	}
+	r_value = i;
+	i--;
+	for (; i >= 0; i--)
+	_putchar(tab[i] + 45);
+	r_value++;
 
 return (r_value);
 
@@ -56,8 +56,8 @@ int print_int(unsigned int num)
  */
 int print_uni(va_list args)
 {
-    unsigned int num = va_arg(args, int);
-	int r_value= 1;
+	unsigned int num = va_arg(args, int);
+	int r_value = 1;
 
 	print_int(num);
 	if (num == 4294967295)
