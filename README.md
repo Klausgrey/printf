@@ -23,7 +23,7 @@ This project is an implementation of the `printf` function in the C programming 
 To use this `printf` implementation in your own C projects, follow these steps:
 
 1. Clone the repository or download the source code files.
-2. Include the `printf.h` header file in your C source file: `#include "printf.h"`.
+2. Include the `main.h` header file in your C source file: `#include "main.h"`.
 3. Compile your source code along with the `printf.c` file: `gcc yourfile.c printf.c -o yourprogram`.
 4. Use the `printf` function in your code as you would with the standard `printf`.
 
